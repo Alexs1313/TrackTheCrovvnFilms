@@ -16,10 +16,11 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native';
 
 import AppBackground from '../components/AppBackground';
 import { useStore } from '../store/context';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const { height } = Dimensions.get('window');
 
-const BUTTONS = ['Movies watched', 'Achievement', 'Plans for review', 'Quiz'];
+const BUTTONS = ['Movies watched', 'Achievement', 'Quiz', 'Plans for review'];
 const ANIMATION_DURATION = 90;
 
 const Main = () => {

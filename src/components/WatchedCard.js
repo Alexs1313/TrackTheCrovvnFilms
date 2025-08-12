@@ -12,7 +12,7 @@ const WatchedCard = ({
   setSelectedMovie,
   showMenu,
 }) => {
-  const [buttonColor, setButtonColor] = useState(true);
+  const [buttonColor, setButtonColor] = useState(false);
   const { fetchMovies, fetchFavorites } = useStore();
 
   useFocusEffect(

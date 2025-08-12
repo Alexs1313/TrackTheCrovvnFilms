@@ -31,13 +31,6 @@ export const quiz = [
 
   {
     question: 'Which film won the Oscar for Best Picture in 2020?',
-    options: ['4', '3', '5', '2'],
-    answer: '3',
-  },
-
-  {
-    question:
-      'How many parts does "The Lord of the Rings" (main trilogy) have?',
     options: ['Parasite', '1917', 'Joker', 'Once Upon a Time in Hollywood'],
     answer: 'Parasite',
   },

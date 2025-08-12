@@ -1,5 +1,6 @@
 import {
   Image,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -30,7 +31,7 @@ const AddReview = ({ route }) => {
   const [isVisibleNotification, setIsVisibleNotification] = useState(true);
   const { saveReview, fetchMovies } = useStore();
   const [showDatePicker, setShowDatePicker] = useState(false);
-  const [date, setDate] = useState(new Date(2021, 8, 17));
+  const [date, setDate] = useState(new Date(2025, 8, 10));
   const [selectedDate, setSelectedDate] = useState(
     editReview?.selectedDate || '',
   );
@@ -47,9 +48,12 @@ const AddReview = ({ route }) => {
       setDate(selectedDate);
       setSelectedDate(formattedDate);
     }
-    setTimeout(() => {
-      setShowDatePicker(false);
-    }, 4000);
+    if (Platform.OS === 'ios') {
+      setTimeout(() => {
+        setShowDatePicker(false);
+      }, 4000);
+    }
+    setShowDatePicker(false);
   };
 
   const imagePicker = () => {
@@ -105,20 +109,24 @@ const AddReview = ({ route }) => {
 
               {showDatePicker ? (
                 <>
-                  <DateTimePicker
-                    testID="dateTimePicker"
-                    value={date}
-                    mode="date"
-                    display="spinner"
-                    accentColor="black"
-                    style={{
-                      backgroundColor: 'rgba(198, 198, 198, 0.78)',
-                      borderRadius: 13,
-                    }}
-                    theme="light"
-                    onChange={onChange}
-                    textColor="black"
-                  />
+                  {
+                    <DateTimePicker
+                      testID="dateTimePicker"
+                      value={date}
+                      mode="date"
+                      display={
+                        Platform.OS === 'android' ? 'calendar' : 'spinner'
+                      }
+                      accentColor="black"
+                      style={{
+                        backgroundColor: 'rgba(198, 198, 198, 0.78)',
+                        borderRadius: 13,
+                      }}
+                      theme="light"
+                      onChange={onChange}
+                      textColor="black"
+                    />
+                  }
                 </>
               ) : (
                 <LinearGradient
@@ -151,12 +159,15 @@ const AddReview = ({ route }) => {
                           >
                             <Image
                               source={{ uri: image }}
-                              style={styles.uploadedImage}
+                              style={[
+                                styles.uploadedImage,
+                                { alignItems: 'center', width: '100%' },
+                              ]}
                             />
                           </TouchableOpacity>
                         )}
                         <TextInput
-                          style={styles.input}
+                          style={[styles.input, movie && { fontWeight: '600' }]}
                           placeholder="Title"
                           placeholderTextColor={'#fff'}
                           value={movie}
@@ -310,7 +321,7 @@ const styles = StyleSheet.create({
   },
   input: {
     width: '100%',
-    height: 34,
+    height: 36,
     backgroundColor: '#262525',
     borderRadius: 10,
     fontSize: 14,

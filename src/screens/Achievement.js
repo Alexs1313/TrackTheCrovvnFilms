@@ -140,6 +140,7 @@ ${selectedCrown.description}`,
                     style={[
                       styles.crownImage,
                       Platform.OS === 'android' && { opacity: 0.6 },
+                      achievement.unlocked && { opacity: 1 },
                     ]}
                   />
                 </View>

@@ -7,7 +7,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ReviewCard = ({ movie }) => {
-  const [buttonColor, setButtonColor] = useState(true);
+  const [buttonColor, setButtonColor] = useState(false);
   const {
     fetchMovies,
     fetchFavorites,

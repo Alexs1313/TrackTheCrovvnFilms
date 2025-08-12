@@ -36,14 +36,15 @@ const AddMovie = ({ route }) => {
     }, []),
   );
 
+  let options = {
+    storageOptions: {
+      path: 'image',
+      maxHeight: 700,
+      maxWidth: 700,
+    },
+  };
+
   const imagePicker = () => {
-    let options = {
-      storageOptions: {
-        path: 'image',
-        maxHeight: 700,
-        maxWidth: 700,
-      },
-    };
     launchImageLibrary(options, response => {
       if (response.didCancel) return;
 
@@ -113,7 +114,10 @@ const AddMovie = ({ route }) => {
                         <TouchableOpacity
                           activeOpacity={0.7}
                           onPress={imagePicker}
-                          style={styles.uploadedImage}
+                          style={[
+                            styles.uploadedImage,
+                            { alignItems: 'center', width: '100%' },
+                          ]}
                         >
                           <Image
                             source={{ uri: image }}
@@ -122,7 +126,7 @@ const AddMovie = ({ route }) => {
                         </TouchableOpacity>
                       )}
                       <TextInput
-                        style={styles.input}
+                        style={[styles.input, movie && { fontWeight: '600' }]}
                         placeholder="Title"
                         placeholderTextColor={'#fff'}
                         value={movie}
@@ -158,8 +162,12 @@ const AddMovie = ({ route }) => {
                         ))}
                       </View>
                       <TextInput
-                        style={[styles.input, styles.descriptionInput]}
-                        verticalAlign="top"
+                        style={[
+                          styles.input,
+                          styles.descriptionInput,
+                          description && { fontWeight: '600' },
+                        ]}
+                        textAlignVertical="top"
                         multiline
                         placeholder="Description"
                         placeholderTextColor={'#fff'}
