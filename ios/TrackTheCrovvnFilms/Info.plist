@@ -5,11 +5,11 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>TrackTheCrovvnFilms</string>
+	<string>Track the Crovvn Films</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<string>com.TrackTheCrovvnFilms</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -17,27 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>$(MARKETING_VERSION)</string>
+	<string>1.0.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>$(CURRENT_PROJECT_VERSION)</string>
-
-    <key>NSCameraUsageDescription</key>
-    <string>This app requires access to your camera to take photos.</string>
-
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>This app requires access to your photo library to select photos.</string>
-
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>This app requires access to save photos to your library.</string>
-
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>This app requires access to your photo library to share images.</string>
-
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>This app requires access to save shared images to your photo library.</string>
-
+	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -47,8 +31,14 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>This app requires access to your camera to take photos.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This app requires access to save shared images to your photo library.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires access to your photo library to share images.</string>
 	<key>RCTNewArchEnabled</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
