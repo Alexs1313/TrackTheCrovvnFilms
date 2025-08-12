@@ -31,6 +31,11 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
+	<key>NSCalendarsUsageDescription</key>
+<string>This app needs access to your calendar to save events.</string>
+
+<key>NSRemindersUsageDescription</key>
+<string>This app needs access to your reminders to schedule notifications.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>This app requires access to your camera to take photos.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
