@@ -1,4 +1,11 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { useStore } from '../store/context';
 import { useCallback, useState } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
@@ -12,7 +19,9 @@ const WatchedCard = ({
   setSelectedMovie,
   showMenu,
 }) => {
-  const [buttonColor, setButtonColor] = useState(false);
+  const [buttonColor, setButtonColor] = useState(
+    Platform.OS === 'ios' ? true : false,
+  );
   const { fetchMovies, fetchFavorites } = useStore();
 
   useFocusEffect(
@@ -23,16 +32,12 @@ const WatchedCard = ({
     }, []),
   );
 
-  console.log('showMenu', showMenu);
-
   useFocusEffect(
     useCallback(() => {
       if (showMenu) {
         setTimeout(() => {
           fetchFavorites();
           renderFavorites(movie);
-
-          console.log('timeout');
         }, 2);
       }
     }),

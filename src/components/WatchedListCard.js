@@ -1,6 +1,13 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { useStore } from '../store/context';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import LottieView from 'lottie-react-native';
@@ -13,7 +20,9 @@ const WatchedListCard = ({
   screen,
   showMenu,
 }) => {
-  const [buttonColor, setButtonColor] = useState(true);
+  const [buttonColor, setButtonColor] = useState(
+    Platform.OS === 'ios' ? true : false,
+  );
   const {
     fetchMovies,
     fetchFavorites,
@@ -39,8 +48,6 @@ const WatchedListCard = ({
         setTimeout(() => {
           fetchFavorites();
           renderFavorites(movie);
-
-          console.log('timeout');
         }, 2);
       }
     }),

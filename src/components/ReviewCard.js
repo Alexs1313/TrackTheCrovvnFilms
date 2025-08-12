@@ -1,4 +1,11 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { useStore } from '../store/context';
 import { useCallback, useState } from 'react';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
@@ -7,7 +14,9 @@ import LinearGradient from 'react-native-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ReviewCard = ({ movie }) => {
-  const [buttonColor, setButtonColor] = useState(false);
+  const [buttonColor, setButtonColor] = useState(
+    Platform.OS === 'ios' ? true : false,
+  );
   const {
     fetchMovies,
     fetchFavorites,
