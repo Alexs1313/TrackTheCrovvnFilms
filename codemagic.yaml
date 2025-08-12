@@ -21,8 +21,9 @@ workflows:
       - name: Install CocoaPods dependencies
         script: |
           cd ios && pod install
-      - name: Set up provisioning profiles
+      - name: Set up provisioning profile settings on  Xcode project
         script: |
+          cd ios
           xcode-project use-profiles
       - name: Increment build number
         script: |
